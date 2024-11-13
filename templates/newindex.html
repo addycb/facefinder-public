@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RGBAttack</title>
+  <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+  <link href="/static/newstyles.css" rel="stylesheet">
+  <style>
+</style>
+</head>
+<body>
+  <div id="mynetwork"></div>
+  <div id="controls">
+    <label for="physics-toggle">
+        <input type="checkbox" id="physics-toggle" checked>
+        Enable Physics
+    </label>
+</div>
+  <div id="about-modal">
+    <div class="modal-content">
+      <h1>Relationship Graph Based Attack</h1>
+      <div>
+      <h3 style="margin-block-end:0em;">By: Addison Baum</h3>
+      <h5 style="margin-block-start:0em;">Find me @ <a href="http://bdayatk.com" target="_blank">bdayatk.com</a></h5>
+      </div>
+      <p><strong>"Relationship Graph Based Attack"</strong> is an advanced tool designed to help users uncover information about individuals captured in images. By leveraging cutting-edge face recognition technology, the app constructs a dynamic graph centered on the person you're investigating. This graph reveals their connections to others who appear in the images, enabling you to trace relationships and discover more about your target.</p>
+            
+      <h2>How It Works</h2>
+      <ul>
+          <li><strong>Initial Search:</strong> Begin by searching for the person of interest. The app scans through available images, identifying the target and constructing a graph with them as the root node.</li>
+          <li><strong>Connections:</strong> Other individuals found in the images become connected nodes, showing their relationship to the target. This creates a visual representation of the social network.</li>
+          <li><strong>Recursive Search:</strong> Want to dig deeper? The app allows you to search recursively, expanding the graph to include people who are two, three, or more degrees away from the original target, providing a comprehensive view of the network.</li>
+      </ul>
+      
+      <h2>Additional Features</h2>
+      <ul>
+          <li><strong>EXIF Data:</strong> Get detailed metadata from the images, including timestamps, locations, and camera settings, to better understand the context of the photos.</li>
+          <li><strong>Contextual Search:</strong> With a single click, you can explore context links related to the images, helping you gather more background information on the target.</li>
+          <li><strong>Export to Excel:</strong> Once you've built your network, easily export the data to an .xlsx file. This file will include images, notes, links, and EXIF data, ensuring you have everything you need in a structured format.</li>
+      </ul>
+      <h4>Submit feature requests, bug reports or other inquries to <a href="mailto:addison@rgbattack.com">addison@rgbattack.com</a>.</h4>
+        <button id="ok-button">OK</button>
+    </div>
+</div>
+  <div id="card-container" class="card-container">
+    <!-- Large card for node -->
+    <div class="large-card">
+      <input type="text" id="node-label" class="label-input" value="Person">
+      <div id="node-cards">
+        <!-- Additional cards will be dynamically added here -->
+      </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crc32/1.0.2/crc32.min.js"></script>
+  <script src="/static/newscripts.js"></script>
+  
+</body>
+</html>

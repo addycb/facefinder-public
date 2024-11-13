@@ -1,0 +1,378 @@
+#mynetwork { width: 100vw; height: 100vh; border: 1px solid lightgray; position:relative }
+div.vis-network {
+  background-color: #f0f0f0;
+  background-image: url('/static/gridbg.jpg'); /* The image used */
+  background: size 25%;
+  background-repeat: repeat; /* Repeats the image to fill the background */
+  position: relative;
+  ;
+}
+
+.download-button{
+  background-color: #007bff;   
+}
+.download-button:hover{
+  background-color: transparent;
+}
+
+.loading {
+  cursor: progress; /* Indicates that a process is ongoing */
+}
+
+/* Modal background styling */
+#about-modal {
+  display: none; /* Use flex to center the modal content */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto; /* Add vertical scrolling if content overflows */
+}
+
+/* Modal content styling */
+.modal-content {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 90%;
+  max-height: 90vh; /* Limit the height of the modal content */
+  overflow-y: auto; /* Enable vertical scrolling if content overflows */
+  font-family: Helvetica, Arial, sans-serif;
+  display: flex;
+  flex-direction: column; /* Arrange children vertically */
+  justify-content: space-between; /* Space out content and the button */
+}
+
+/* Heading styles */
+.modal-content h1 {
+  margin-top: 0;
+  font-size: 24px;
+}
+
+.modal-content h2 {
+  font-size: 20px;
+  color: #555;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+/* List styling */
+.modal-content ul {
+  padding-left: 20px;
+  list-style-type: disc;
+}
+
+.modal-content li {
+  margin-bottom: 10px;
+  line-height: 1.6;
+  text-align: left;
+}
+
+/* OK button styling */
+#ok-button {
+  margin-top: 20px;
+  padding: 10px 20px; /* Increased padding for better click area */
+  font-size: 16px; /* Slightly larger font size for visibility */
+  cursor: pointer;
+}
+
+
+.button-holder{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 10px;
+  padding-left:10px;
+  padding-right:10px;
+  position:absolute;
+  top:80%;
+  left:40%;
+}
+
+.pulsing-background {
+  background-color: transparent;
+  background-size: 400% 400%;
+  transition: transform 0.3s ease, background 0.3s ease;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+/* Hover effect to trigger animations */
+.pulsing-background:hover {
+  background: linear-gradient(45deg, #ff007f, #007fff, #7fff00);
+  animation: gradientShift 5s ease infinite, pulse 2s ease infinite;
+}
+
+/* Animation to shift the gradient */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Animation for the pulsing effect */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+/* Initial style for the button */
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  /* Style for moving the button to the bottom-left */
+  .bottomleft {
+    top: auto;
+    left: 0;
+    bottom: 0;
+    transform: none;
+  }
+  .side-button {
+    flex: 1; /* This makes sure the side buttons are equally spaced */
+  }
+
+
+
+.button-group {
+  display: flex;
+  align-items: center;
+}
+
+.center-button {
+  margin: 0 20px; /* Adjust this margin to control the space between the buttons */
+}
+
+  .card-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid black;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: auto;
+    z-index: 1000;
+  }
+
+
+  
+  
+  .large-card {
+    padding: 20px;
+    background: #f0f0f0;
+    border: 1px solid black;
+    border-radius: 5px;
+    overflow: auto;
+    max-height: 80vh;
+    z-index: 1000;
+    text-align: center;
+    justify-content: center;
+  }
+  
+  .node-label {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .label-input2 {
+   
+    padding: 8px;
+    margin-bottom: 20px;
+    text-align: center;
+    justify-content: center;
+    
+  }
+  .label-input {
+    padding: 2px 5px;  /* Adds some padding around the text */
+    background-color: #ffffff;  /* Optional: background color */
+    border-radius: 3px;  /* Optional: rounded corners */
+    white-space: nowrap;  /* Prevents text from wrapping */
+    overflow: hidden;  /* Ensures overflow text is hidden */
+    text-overflow: ellipsis;  /* Adds ellipsis for overflow text */
+    text-align: center;
+    margin-bottom: 10px;
+    justify-content: center;
+    width: auto;  /* Ensures the width auto-adjusts to the text */
+}
+    
+  .card {
+    display: flex;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color:#f0f0f0;
+    text-align: center;
+    justify-content: center;
+  }
+  
+  .card img {
+    max-width: 150px;
+    max-height: 150px;
+    margin-right: 20px;
+  }
+  
+  .card-content {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  
+
+.remove-button {
+  background: red;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 5px;
+  position: relative;
+  z-index: 1; /* Ensure the button appears on top of the image */
+}
+  .card-2content {
+    margin-bottom: 10px;
+    padding: 5px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .search-button {
+    margin-bottom: 10px;
+    padding: 5px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .card-content .search-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .card-content .exif-data {
+    margin-top: 10px;
+    font-size: 14px;
+    color: gray;
+  }
+  
+  .focus-button {
+    position: fixed;
+    bottom: 60px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1001;
+    display:none;
+  }
+
+  #prune-no2de-button {
+    display: none; /* Initially hidden */
+  }
+  .prune-button {
+    position: fixed;
+    bottom: 20px;
+    padding: 10px 20px;
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1001;
+    display:none;
+  }
+
+  .prune-button:hover {
+    background-color: #e40000;
+  }
+  
+  .search-button-main {
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1001;
+  }
+
+
+  .save-button-main:hover {
+    display: inline-block;
+    background-color: transparent;
+  }
+.paddingleft{
+  padding-left: 25px;
+}
+
+.paddingright{
+  padding-right: 25px;
+}
+
+
+  .focus-button:hover,
+  .search-button-main:hover {
+    background-color: #0056b3;
+  }
+  
+  .search-button-2main {
+    bottom: 60px;
+  }
+  
+  .search-box {
+    margin-top: 20px;
+  }
+  
+  .search-box h2 {
+    margin-top: 0;
+  }
+  
+  .search-box input[type="text"] {
+    width: calc(100% - 100px);
+    padding: 8px;
+    margin-right: 10px;
+  }
+  
+  .search-box button {
+    padding: 8px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .search-box button:hover {
+    background-color: #0056b3;
+  }
+  
+  #controls {
+    position: fixed; /* Fix the position relative to the viewport */
+    bottom: 20px;    /* Distance from the bottom */
+    left: 20px;      /* Distance from the left */
+    background-color: white; /* Background color for better visibility */
+    padding: 10px;   /* Padding around the checkbox */
+    border-radius: 5px; /* Optional: rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: shadow for better visibility */
+}
